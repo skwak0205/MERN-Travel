@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Axios from "axios";
+import moment from "moment";
 
 function HistoryPage(props) {
   const [History, setHistory] = useState([]);
@@ -38,7 +39,9 @@ function HistoryPage(props) {
               <td>{item.paymentId}</td>
               <td>{item.price}</td>
               <td>{item.quantity}</td>
-              <td>{item.dateOfPurchase}</td>
+              <td>
+                {moment(new Date(item.dateOfPurchase)).format("DD-MM-YYYY")}
+              </td>
             </tr>
           ))}
         </tbody>
